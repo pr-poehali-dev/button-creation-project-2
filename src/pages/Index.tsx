@@ -146,38 +146,25 @@ export default function Index() {
   return (
     <div
       className="min-h-screen flex items-center justify-center font-rubik"
-      style={{
-        background: "linear-gradient(135deg, #0a0a0f 0%, #12001a 40%, #0a0f1a 100%)",
-      }}
+      style={{ background: "#f5f5f7" }}
     >
-      {/* Ambient glow blobs */}
-      <div
-        className="fixed top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #a855f7 0%, transparent 70%)", filter: "blur(60px)" }}
-      />
-      <div
-        className="fixed bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15 pointer-events-none"
-        style={{ background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)", filter: "blur(60px)" }}
-      />
-
       <div
         className="relative w-80 rounded-3xl overflow-hidden animate-fade-in"
         style={{
-          background: "rgba(15, 10, 25, 0.85)",
-          backdropFilter: "blur(30px)",
-          border: "1px solid rgba(168, 85, 247, 0.25)",
-          boxShadow: "0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(168,85,247,0.15), inset 0 1px 0 rgba(255,255,255,0.07)",
+          background: "#ffffff",
+          border: "1px solid #e5e5ea",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06)",
         }}
       >
         {/* Display */}
         <div
           className="px-6 pt-8 pb-6"
-          style={{ background: "linear-gradient(180deg, rgba(168,85,247,0.06) 0%, transparent 100%)" }}
+          style={{ background: "linear-gradient(180deg, #f9f9fb 0%, #ffffff 100%)" }}
         >
           <div className="text-right min-h-[28px] mb-1">
             <span
               className="font-mono text-sm tracking-wider"
-              style={{ color: "rgba(168,85,247,0.7)" }}
+              style={{ color: "#8e8e93" }}
             >
               {state.expression || "\u00A0"}
             </span>
@@ -185,7 +172,7 @@ export default function Index() {
           <div className="text-right overflow-hidden">
             <span
               className={`font-mono font-bold ${fontSize} tracking-tight`}
-              style={{ color: "#ffffff", textShadow: "0 0 30px rgba(168,85,247,0.5)" }}
+              style={{ color: "#1c1c1e" }}
             >
               {state.display}
             </span>
@@ -193,7 +180,7 @@ export default function Index() {
         </div>
 
         {/* Divider */}
-        <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent)" }} />
+        <div style={{ height: "1px", background: "#e5e5ea" }} />
 
         {/* Buttons */}
         <div className="p-4 grid grid-cols-4 gap-3">
@@ -205,21 +192,21 @@ export default function Index() {
             let border = "";
 
             if (btn.type === "fn") {
-              bg = "rgba(255,255,255,0.12)";
-              shadow = "0 4px 12px rgba(0,0,0,0.3)";
-              border = "1px solid rgba(255,255,255,0.08)";
+              bg = "#e5e5ea";
+              shadow = "0 2px 8px rgba(0,0,0,0.08)";
+              border = "1px solid #d1d1d6";
             } else if (btn.type === "op") {
               bg = "linear-gradient(135deg, #7c3aed, #a855f7)";
-              shadow = "0 4px 20px rgba(124,58,237,0.5)";
-              border = "1px solid rgba(168,85,247,0.4)";
+              shadow = "0 4px 16px rgba(124,58,237,0.35)";
+              border = "1px solid rgba(124,58,237,0.3)";
             } else if (btn.type === "eq") {
               bg = "linear-gradient(135deg, #06b6d4, #0ea5e9)";
-              shadow = "0 4px 20px rgba(6,182,212,0.5)";
-              border = "1px solid rgba(6,182,212,0.4)";
+              shadow = "0 4px 16px rgba(6,182,212,0.35)";
+              border = "1px solid rgba(6,182,212,0.3)";
             } else {
-              bg = "rgba(255,255,255,0.07)";
-              shadow = "0 4px 12px rgba(0,0,0,0.2)";
-              border = "1px solid rgba(255,255,255,0.08)";
+              bg = "#f2f2f7";
+              shadow = "0 2px 8px rgba(0,0,0,0.06)";
+              border = "1px solid #e5e5ea";
             }
 
             return (
@@ -234,7 +221,7 @@ export default function Index() {
                 `}
                 style={{
                   background: bg,
-                  color: "#ffffff",
+                  color: (btn.type === "op" || btn.type === "eq") ? "#ffffff" : "#1c1c1e",
                   boxShadow: isPressed ? "none" : shadow,
                   transform: isPressed ? "scale(0.93)" : "scale(1)",
                   border,
